@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        
+        <script>
+            var TotBudget=0;
+            var TotExp=0;
+            $(document).ready(function(){
+                $("#btn").click(function(){
+                    var bgValue=$("#text").val();
+                    TotBudget+=parseInt(bgValue);
+                    $("#ex1").text(TotBudget);
+                    balance();
+                });
+                $("#btn1").click(function(){
+                    var con=$("#text1").val();
+                    $("#exp").append(con+"<br>");
+                    var Amount=$("#text2").val();
+                    TotExp+=parseInt(Amount);
+                    $("#exp1").append(Amount+"<br>");
+                    balance();
+
+                });
+                function balance(){
+                    var bal=TotBudget-TotExp;
+                    $("#balance").text(bal);
+                }
+            });
+            
+
+        </script>
+        <style>
+            body{
+                background-color: #e9e9e9;
+            }
+            
+
+            .img{ 
+                display: flex;
+              margin-left: 20px;
+                height: auto;
+                width: 50px;
+                border-radius: 50px;
+                margin-top: 10px;
+            }
+            .content1{
+                border: 1px solid purple;
+                
+                padding: 10px;
+                margin-top: 20px;
+                margin-right: 20%;
+                box-shadow: 2px 2px 4px purple;
+                
+
+            }
+            .content2{
+                margin-top: 20px;
+                margin-right: 20%;
+                box-shadow: 2px 2px 4px purple;
+                padding: 10px;
+                border: 1px solid purple;
+        
+            }
+            
+        </style>
+    </head>
+    <body>
+        <h1>BUDGET APP</h1>
+        <div class="img">
+            <div class="content1" style="color: green;">
+            <label>Please Enter Your Budget</label><br><br>
+            <input type="text" id="text" name="textbox"><br><br>
+            <button id="btn" onclick="TotAmt()">Calculate</button>
+            </div>
+            <div style="text-align: center; padding-top: 0px; margin-left: 20px;">
+        <h3>BUDGET</h3>
+        <i class="fa fa-money" style="color: purple; font-size: 30px;"></i><br><br>
+        <i class="fa fa-dollar" style="color: purple; font-size: 20px;"></i><br><br>
+        <label id="ex1"></label>
+       </div>
+       <div style="text-align: center; padding-top: 0px; margin-left: 20px;">
+        <h3>EXPENSES</h3>
+        <i class="fa fa-credit-card" style="color: purple; font-size: 30px;"></i><br><br>
+        <i class="fa fa-dollar" style="color: purple; font-size: 20px;"></i>
+        <label id="expense"></label>
+        </div>
+        <div style="text-align: center; padding-top: 0px; margin-left: 20px;">
+            <h3>BALANCE</h3>
+            <i class="fa fa-dollar" style="color: purple; font-size: 30px;"></i><br><br>
+            <i class="fa fa-dollar" style="color: purple; font-size: 20px;"></i>
+            <label id="balance"></label>
+            </div>
+        </div>
+        <div class="img">
+             <div class="content2" style="color: purple;">
+            <label>Please Enter Your Expense</label><br><br>
+            <input type="text" id="text1" name="textbox"><br><br>
+            <label>Please Enter Expense Amount</label><br><br>
+            <input type="text" id="text2" name="textbox"><br><br>
+            <button id="btn1" onclick="TotExpense()">Add Expense</button>
+        </div>
+        <div style="margin-left: 20px; padding: 10px;">
+        <table id="tt" style="margin-top:10px">
+            <tr>
+                <th id="exp" style="padding: 10px;">Expense Title</th>
+                <th id="exp1" style="padding: 10px;">Expense Value</th>
+                <th> </th>
+            </tr>
+
+        </table>
+        </div>
+        </div>
+    </body>
+</html>
